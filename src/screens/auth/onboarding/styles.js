@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     content: {
         padding: 46,
         paddingTop: 0,
+        backgroundColor: colors.white,
     },
     title: {
         color: colors.black,
@@ -39,6 +40,12 @@ const styles = StyleSheet.create({
         bottom: 0,
         borderTopLeftRadius: 15,
         borderTopRightRadius: 15,
+      },
+      footerText: {
+
+      },
+      footerLink: {
+
       },
 });
 
