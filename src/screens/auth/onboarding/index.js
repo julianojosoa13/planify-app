@@ -9,10 +9,14 @@ function Onboarding() {
 
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require('../../../assets/avi-richards-Z3ownETsdNQ-unsplash-1.png')}
-      />
+      <View style={{flex: 1}}>
+        <Image
+          style={styles.image}
+          source={require('../../../assets/avi-richards-Z3ownETsdNQ-unsplash-1.png')}
+        />
+
+        <View style={styles.footer}/>
+      </View>
 
       <View style={styles.content}>
         <Text style={styles.title}>Best Task Management app</Text>

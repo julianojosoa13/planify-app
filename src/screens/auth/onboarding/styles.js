@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     },
     content: {
         padding: 46,
+        paddingTop: 0,
     },
     title: {
         color: colors.black,
@@ -26,6 +27,15 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 15,
         marginVertical: 16
+      },
+      footer: {
+        height: 50,
+        width: '100%',
+        backgroundColor: colors.white,
+        position: 'absolute',
+        bottom: 0,
+        borderTopLeftRadius: 13,
+        borderTopRightRadius: 13,
       },
 });
 
