@@ -22,7 +22,7 @@ function Onboarding() {
         <Text style={styles.title}>Best Task Management app</Text>
         <Text style={styles.subtitle}>Get organized by sorting out all your tasks and boost your productivity.</Text>
         <Button>Log in</Button>
-        <Button>Get started</Button>
+        <Button type="blue" >Get started</Button>
       </View>
     </View>
   );

@@ -34,8 +34,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         position: 'absolute',
         bottom: 0,
-        borderTopLeftRadius: 13,
-        borderTopRightRadius: 13,
+        borderTopLeftRadius: 15,
+        borderTopRightRadius: 15,
       },
 });
 
