@@ -2,10 +2,13 @@
 import { StyleSheet, Dimensions } from 'react-native';
 import colors from '../../../constants/colors';
 
-const {height, width} = Dimensions.get('window')
+const { width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container:{
+        flex: 1,
+    },
+    flex1: {
         flex: 1,
     },
     image: {
@@ -26,7 +29,7 @@ const styles = StyleSheet.create({
         color: colors.grey,
         textAlign: 'center',
         fontSize: 15,
-        marginVertical: 16
+        marginVertical: 16,
       },
       footer: {
         height: 50,

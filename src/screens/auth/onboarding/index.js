@@ -9,7 +9,7 @@ function Onboarding() {
 
   return (
     <View style={styles.container}>
-      <View style={{flex: 1}}>
+      <View style={styles.flex1}>
         <Image
           style={styles.image}
           source={require('../../../assets/avi-richards-Z3ownETsdNQ-unsplash-1.png')}
