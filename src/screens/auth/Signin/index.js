@@ -16,9 +16,9 @@ function Signin({navigation}) {
       <Input placeholder="Password" />
       <Button>Login</Button>
       <Text style={styles.footerText}>
-          Not Registered?
-          <Text style={styles.footerLink} onPress={() => navigation.navigate('Signup')}> Sign up!</Text>
-        </Text>
+        Not Registered?
+        <Text style={styles.footerLink} onPress={() => navigation.navigate('Signup')}> Sign up!</Text>
+      </Text>
     </SafeAreaView>
   );
 }

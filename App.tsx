@@ -26,7 +26,7 @@ function App(): JSX.Element {
         }}
       >
         <Stack.Screen name="Onboarding" component={Onboarding} />
-        <Stack.Screen name="Login" component={Signin} />
+        <Stack.Screen name="Signin" component={Signin} />
         <Stack.Screen name="Signup" component={Signup} />
       </Stack.Navigator>
     </NavigationContainer>
