@@ -12,7 +12,7 @@ function Signin({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
       <Title>Welcome back!</Title>
-      <Input placeholder="Email" />
+      <Input placeholder="Email" keyboardType="email-address"/>
       <Input placeholder="Password" secureTextEntry={true}/>
       <Button>Login</Button>
       <Text style={styles.footerText}>

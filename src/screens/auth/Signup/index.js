@@ -24,7 +24,7 @@ function Signup({navigation}) {
       <Title>Join the hub!</Title>
       <Input placeholder='Firstname' />
       <Input placeholder='Lastname' />
-      <Input placeholder='Email' />
+      <Input placeholder='Email' keyboardType="email-address"/>
       <Input placeholder='Password' secureTextEntry={true}/>
       <Input placeholder='Confirm Password' secureTextEntry={true} />
 
