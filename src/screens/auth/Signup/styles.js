@@ -20,6 +20,20 @@ const styles = StyleSheet.create({
         color: colors.purple,
         fontWeight: 'bold',
     },
+    tos: {
+        justifyContent: 'center',
+        flexDirection: 'row',
+        marginVertical: 20,
+    },
+    tosText: {
+        marginLeft: 4,
+    },
+    innerSquare: {  
+        backgroundColor: colors.purple,
+        height: 9,
+        width: 9,
+        borderRadius: 3,
+    },
 });
 
 export default styles;
