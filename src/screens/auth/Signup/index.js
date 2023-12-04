@@ -10,6 +10,10 @@ import CheckBox from '../../../components/CheckBox';
 
 function Signup({navigation}) {
   const [agree, setAgree] = useState(false)
+
+  const onCheckBoxPress = () => {
+    setAgree( value=> !value )
+  } 
   return (
     <View style={styles.container}>
       <Title>Join the hub!</Title>
@@ -26,8 +30,13 @@ function Signup({navigation}) {
         <Text style={styles.footerLink} onPress={() => navigation.navigate('Signin')}> Sign in!</Text>
       </Text>
       <View style={styles.tos}>
-        <CheckBox checked={agree} onPress={() =>  setAgree(!agree)} />
-        <Text style={styles.tosText}>Accept Terms and Conditions</Text>
+        <CheckBox checked={agree} onPress={onCheckBoxPress} />
+        <Text style={styles.tosText}>
+          I agree to{` `}
+          <Text style={styles.link}>Terms and Conditions </Text>
+          and{` `}
+          <Text style={styles.link}>Privacy Policy</Text> 
+        </Text>
       </View>
     </View>
   );

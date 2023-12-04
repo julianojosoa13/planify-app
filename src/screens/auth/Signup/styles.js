@@ -22,18 +22,18 @@ const styles = StyleSheet.create({
     },
     tos: {
         justifyContent: 'center',
+        alignItems: 'center',
         flexDirection: 'row',
-        marginVertical: 20,
+        marginVertical: 16,
     },
     tosText: {
-        marginLeft: 4,
+        marginLeft: 8,
+        color: colors.grey,
+        fontSize: 12,
     },
-    innerSquare: {  
-        backgroundColor: colors.purple,
-        height: 9,
-        width: 9,
-        borderRadius: 3,
-    },
+    link: {
+        textDecorationLine: 'underline',
+    }
 });
 
 export default styles;
