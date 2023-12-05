@@ -1,4 +1,4 @@
-package com.planifyapp;
+package com.julianojosoa.planifyapp;
 
 import android.app.Application;
 import com.facebook.react.PackageList;

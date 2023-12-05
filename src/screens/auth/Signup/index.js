@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { View, Text, Linking } from 'react-native';
+import { View, Text, Linking, Alert } from 'react-native';
 import React,  {useState} from 'react';
-
+import auth from '@react-native-firebase/auth'
 import styles from './styles';
 import Button from '../../../components/Button';
 import Input from '../../../components/Input';
@@ -19,6 +19,26 @@ function Signup({navigation}) {
   const onLinkPress = (url) => {
     Linking.openURL(url)
   }
+
+  const onSubmit = () => {
+    auth()
+      .createUserWithEmailAndPassword('jane.doe@example.com', 'SuperSecretPassword!')
+      .then(() => {
+        console.log('User account created & signed in!');
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          Alert.alert('That email address is already in use!');
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          Alert.alert('That email address is invalid!');
+        }
+        Alert.alert(error)
+        console.error(error);
+      });
+  }
+
   return (
     <View style={styles.container}>
       <Title>Join the hub!</Title>
@@ -28,7 +48,7 @@ function Signup({navigation}) {
       <Input placeholder='Password' secureTextEntry={true}/>
       <Input placeholder='Confirm Password' secureTextEntry={true} />
 
-      <Button type='blue' >Create an account</Button>
+      <Button type='blue' onPress={onSubmit} >Create an account</Button>
 
       <Text style={styles.footerText}>
         Already Registered?

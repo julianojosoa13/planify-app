@@ -74,7 +74,7 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.planifyapp"
+    namespace "com.julianojosoa.planifyapp"
     defaultConfig {
         applicationId "com.julianojosoa.planifyapp"
         minSdkVersion rootProject.ext.minSdkVersion
