@@ -20,7 +20,7 @@ function Onboarding({navigation}) {
       <View style={styles.content}>
         <Text style={styles.title}>Best Task Management app</Text>
         <Text style={styles.subtitle}>Get organized by sorting out all your tasks and boost your productivity.</Text>
-        <Button onPress={() => navigation.navigate('Login')}>Log in</Button>
+        <Button onPress={() => navigation.navigate('Signin')}>Log in</Button>
         <Button type="blue" onPress={() => navigation.navigate('Signup')}>Get started</Button>
       </View>
     </View>
