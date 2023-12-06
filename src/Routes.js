@@ -38,9 +38,19 @@ function Routes() {
 
   if (initializing) return null;
   
-  if(user) return (
-    <Text style={{margin: 48}}>Welcome</Text>
-  )
+  if(user) {
+    const logout = async () => {
+      auth()
+            .signOut()
+            .then(() => console.log('user signed out') );
+    }
+    return (
+    <>
+      <Text style={{margin: 48}}>Welcome</Text>
+      <Text style={{margin: 48}} onPress={logout}>Log out!</Text>
+    </>
+    )
+  }
   return (
     <Stack.Navigator
     screenOptions={{
