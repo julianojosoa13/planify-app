@@ -10,15 +10,26 @@ import CheckBox from '../../../components/CheckBox';
 import { PRIVACY_POLICY_LINK, TERMS_AND_CONDITIONS } from '../../../constants/links';
 
 function Signup({navigation}) {
-  const [agree, setAgree] = useState(false)
+  const [agree, setAgree] = useState(false);
+  const [values, setValues] = useState({});
+
+  const onChange = (value, key) => {
+    console.log('some text changed ', key)
+    setValues(vals => ({
+      ...vals,
+      [key]: value,
+    }));
+  };
 
   const onCheckBoxPress = () => {
     setAgree( value=> !value )
-  }
+  };
 
   const onLinkPress = (url) => {
     Linking.openURL(url)
-  }
+  };
+
+  console.log('Values :>> ', values)
 
   const onSubmit = () => {
     auth()
@@ -42,11 +53,11 @@ function Signup({navigation}) {
   return (
     <View style={styles.container}>
       <Title>Join the hub!</Title>
-      <Input placeholder='Firstname' />
-      <Input placeholder='Lastname' />
-      <Input placeholder='Email' keyboardType="email-address"/>
-      <Input placeholder='Password' secureTextEntry={true}/>
-      <Input placeholder='Confirm Password' secureTextEntry={true} />
+      <Input onChangeText={(val)=> onChange(val, 'firstname')} placeholder='Firstname' />
+      <Input onChangeText={(val)=> onChange(val, 'lastname')} placeholder='Lastname' />
+      <Input onChangeText={(val)=> onChange(val, 'email')} placeholder='Email' keyboardType="email-address"/>
+      <Input onChangeText={(val)=> onChange(val, 'password')} placeholder='Password' secureTextEntry={true}/>
+      <Input onChangeText={(val)=> onChange(val, 'confirm_password')} placeholder='Confirm Password' secureTextEntry={true} />
 
       <Button type='blue' onPress={onSubmit} >Create an account</Button>
 
