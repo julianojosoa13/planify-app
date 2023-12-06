@@ -44,7 +44,7 @@ function Signup({navigation}) {
     auth()
       .createUserWithEmailAndPassword(values.email, values.password)
       .then(() => {
-        console.log('User account created & signed in!');
+        auth().currentUser.updateProfile({displayName: `${values.firstname} ${values.lastname}`});
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
