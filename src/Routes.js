@@ -1,4 +1,8 @@
 /* eslint-disable prettier/prettier */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable semi */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable prettier/prettier */
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
@@ -38,7 +42,7 @@ function Routes() {
 
   if (initializing) return null;
   
-  if(user) {
+  if (user) {
     const logout = async () => {
       auth()
             .signOut()

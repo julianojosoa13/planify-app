@@ -30,9 +30,11 @@ function Signup({navigation}) {
     Linking.openURL(url)
   };
 
-  console.log('Values :>> ', values)
-
   const onSubmit = () => {
+    if (!values.firstname || !values.lastname) {
+      Alert.alert('Please enter first name and last name');
+      return;
+    }
     if (values.password !== values.confirm_password) {
       Alert.alert('Password do not match');
       return;
