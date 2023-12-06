@@ -8,6 +8,7 @@ import Input from '../../../components/Input';
 import Title from '../../../components/Title';
 import CheckBox from '../../../components/CheckBox';
 import { PRIVACY_POLICY_LINK, TERMS_AND_CONDITIONS } from '../../../constants/links';
+import { ScrollView } from 'react-native-gesture-handler';
 
 function Signup({navigation}) {
   const [agree, setAgree] = useState(false);
@@ -60,28 +61,30 @@ function Signup({navigation}) {
 
   return (
     <View style={styles.container}>
-      <Title>Join the hub!</Title>
-      <Input onChangeText={(val)=> onChange(val, 'firstname')} placeholder='Firstname' />
-      <Input onChangeText={(val)=> onChange(val, 'lastname')} placeholder='Lastname' />
-      <Input onChangeText={(val)=> onChange(val, 'email')} placeholder='Email' keyboardType="email-address"/>
-      <Input onChangeText={(val)=> onChange(val, 'password')} placeholder='Password' secureTextEntry={true}/>
-      <Input onChangeText={(val)=> onChange(val, 'confirm_password')} placeholder='Confirm Password' secureTextEntry={true} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Title>Join the hub!</Title>
+        <Input onChangeText={(val)=> onChange(val, 'firstname')} placeholder='Firstname' />
+        <Input onChangeText={(val)=> onChange(val, 'lastname')} placeholder='Lastname' />
+        <Input onChangeText={(val)=> onChange(val, 'email')} placeholder='Email' keyboardType="email-address"/>
+        <Input onChangeText={(val)=> onChange(val, 'password')} placeholder='Password' secureTextEntry={true}/>
+        <Input onChangeText={(val)=> onChange(val, 'confirm_password')} placeholder='Confirm Password' secureTextEntry={true} />
 
-      <Button type='blue' onPress={onSubmit} >Create an account</Button>
+        <Button type='blue' onPress={onSubmit} >Create an account</Button>
 
-      <Text style={styles.footerText}>
-        Already Registered?
-        <Text style={styles.footerLink} onPress={() => navigation.navigate('Signin')}> Sign in!</Text>
-      </Text>
-      <View style={styles.tos}>
-        <CheckBox checked={agree} onPress={onCheckBoxPress} />
-        <Text style={styles.tosText}>
-          I agree to{` `}
-          <Text style={styles.link} onPress={() => onLinkPress(TERMS_AND_CONDITIONS)}>Terms and Conditions </Text>
-          and{` `}
-          <Text style={styles.link} onPress={() => onLinkPress(PRIVACY_POLICY_LINK)}>Privacy Policy</Text> 
+        <Text style={styles.footerText}>
+          Already Registered?
+          <Text style={styles.footerLink} onPress={() => navigation.navigate('Signin')}> Sign in!</Text>
         </Text>
-      </View>
+        <View style={styles.tos}>
+          <CheckBox checked={agree} onPress={onCheckBoxPress} />
+          <Text style={styles.tosText}>
+            I agree to{` `}
+            <Text style={styles.link} onPress={() => onLinkPress(TERMS_AND_CONDITIONS)}>Terms and Conditions </Text>
+            and{` `}
+            <Text style={styles.link} onPress={() => onLinkPress(PRIVACY_POLICY_LINK)}>Privacy Policy</Text> 
+          </Text>
+        </View>
+      </ScrollView>
     </View>
   );
 }
