@@ -32,8 +32,16 @@ function Signup({navigation}) {
   console.log('Values :>> ', values)
 
   const onSubmit = () => {
+    if (values.password !== values.confirm_password) {
+      Alert.alert('Password do not match');
+      return;
+    }
+    if(!agree) {
+      Alert.alert('You need to accept the Terms & Conditions before creation your account!');
+      return;
+    }
     auth()
-      .createUserWithEmailAndPassword('jane.doe@example.com', 'SuperSecretPassword!')
+      .createUserWithEmailAndPassword(values.email, values.password)
       .then(() => {
         console.log('User account created & signed in!');
       })
