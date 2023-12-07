@@ -63,15 +63,6 @@ const Routes = () => {
   //   )
   // }  
 
-  const Tabs = () => {
-    return (
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Tasks" component={Tasks} />
-      </Tab.Navigator>
-    )
-  };
-
   if (user) {
     return (
       <Drawer.Navigator>
@@ -94,6 +85,14 @@ const Routes = () => {
   );
 }
 
+const Tabs = () => {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Tasks" component={Tasks} />
+    </Tab.Navigator>
+  )
+};
 export default Routes;
 
 
