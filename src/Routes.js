@@ -10,6 +10,7 @@
  * @format
  */
 import React, { useState, useEffect } from 'react';
+import { Image, StyleSheet } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -87,12 +88,47 @@ const Routes = () => {
 
 const Tabs = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Tasks" component={Tasks} />
+    <Tab.Navigator
+      screenOptions={{
+        tabBarShowLabel: false,
+        headerShown: false,
+      }}
+    >
+      <Tab.Screen 
+        name="Home" 
+        component={Home} 
+        options={{
+          tabBarIcon: ({focused}) => {
+            return <Image 
+                    source={focused? require('./assets/home-active.png') : require('./assets/home-inactive.png')} 
+                    style={styles.icon}
+                  />
+          }
+        }}  
+      />
+      <Tab.Screen 
+        name="Tasks" 
+        component={Tasks} 
+        options={{
+          tabBarIcon: ({focused}) => {
+            return <Image 
+                      source={ focused? require('./assets/tasks-active.png') : require('./assets/tasks-inactive.png')} 
+                      style={styles.icon}
+                   />
+          },
+        }}  
+      />
     </Tab.Navigator>
   )
 };
+
 export default Routes;
 
+
+const styles = StyleSheet.create({
+  icon: {
+    width: 24,
+    height: 24
+  }
+})
 
