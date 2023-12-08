@@ -68,7 +68,7 @@ const Routes = () => {
   if (user) {
     return (
       <Drawer.Navigator
-        drawerContent={() => <DrawerContent/>}
+        drawerContent={(props) => <DrawerContent {...props}/>}
       >
         <Drawer.Screen name="Tabs" component={Tabs} />
         <Drawer.Screen name="AddTask" component={AddTask} />
