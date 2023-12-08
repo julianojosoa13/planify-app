@@ -23,6 +23,7 @@ import Signup from './screens/auth/Signup';
 import Home from './screens/app/Home';
 import Tasks from './screens/app/Tasks';
 import AddTask from './screens/app/AddTask';
+import DrawerContent from './components/DrawerContent';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -66,7 +67,9 @@ const Routes = () => {
 
   if (user) {
     return (
-      <Drawer.Navigator>
+      <Drawer.Navigator
+        drawerContent={() => <DrawerContent/>}
+      >
         <Drawer.Screen name="Tabs" component={Tabs} />
         <Drawer.Screen name="AddTask" component={AddTask} />
       </Drawer.Navigator>
