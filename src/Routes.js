@@ -49,21 +49,7 @@ const Routes = () => {
     return subscriber; // unsubscribe on unmount
   }, []);
 
-  if (initializing) return null;
-  
-  // if (user) {
-  //   const logout = async () => {
-  //     auth()
-  //           .signOut()
-  //           .then(() => console.log('user signed out') );
-  //   }
-  //   return (
-  //   <>
-  //     <Text style={{margin: 48}}>Welcome</Text>
-  //     <Text style={{margin: 48}} onPress={logout}>Log out!</Text>
-  //   </>
-  //   )
-  // }  
+  if (initializing) return null; 
 
   if (user) {
     return (
