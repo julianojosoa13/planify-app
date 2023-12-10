@@ -55,6 +55,7 @@ const Routes = () => {
     return (
       <Drawer.Navigator
         drawerContent={(props) => <DrawerContent {...props}/>}
+        screenOptions={{headerShown: false}}
       >
         <Drawer.Screen name="Tabs" component={Tabs} />
         <Drawer.Screen name="AddTask" component={AddTask} />
