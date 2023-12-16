@@ -4,12 +4,13 @@ import React from 'react';
 
 import styles from './styles';
 import Button from '../../../components/Button';
+import Header from '../../../components/Header';
 
-function Home({navigation}) {
+function Home() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Home</Text>
+      <Header title='Home'/>
     </SafeAreaView>
   );
 }

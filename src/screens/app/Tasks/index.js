@@ -4,12 +4,13 @@ import React from 'react';
 
 import styles from './styles';
 import Button from '../../../components/Button';
+import Header from '../../../components/Header';
 
-function Tasks({navigation}) {
+function Tasks() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Tasks</Text>
+      <Header title={'Tasks'}/>
     </SafeAreaView>
   );
 }
