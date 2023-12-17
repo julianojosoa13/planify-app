@@ -6,7 +6,7 @@ const { width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1,
+        
     },
     backContainer: {
         padding: 24
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         color: colors.black,
         fontSize: 12,
         marginHorizontal: 24,
+        marginTop: 12,
         fontWeight: '500',
     }
 });

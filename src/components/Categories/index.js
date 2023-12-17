@@ -7,16 +7,16 @@ const Categories = ({ categories, selectedCategory, onCategoryPress }) => {
         <FlatList
             horizontal
             data={categories}
-            keyExtractor={item => String(item)}
+            keyExtractor={item => item.value}
             showsHorizontalScrollIndicator={false}
-            style={{ marginHorizontal: -24, marginTop: 24 }}
+            style={{ marginTop: 12 }}
             renderItem={({ item, index }) => {
-                const selected = selectedCategory === item;
-                const displayName = item?.replace('_', ' ')
+                const selected = selectedCategory === item.value;
+                const displayName = item?.label
 
                 return (
                     <TouchableOpacity
-                        onPress={() => onCategoryPress(item)}
+                        onPress={() => onCategoryPress(item.value)}
                         style={[styles.itemContainer, selected ? styles.selectedItemContainer : {}, index === 0 ? { marginLeft: 24 } : {}]}
                     >
                         <Text style={[styles.item, selected ? styles.selectedItem : {}]}>{displayName}</Text>

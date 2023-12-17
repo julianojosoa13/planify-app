@@ -4,22 +4,25 @@ import colors from '../../constants/colors';
 const styles = StyleSheet.create({
     item: {
         fontSize: 12,
-        color: colors.green,
+        color: colors.blue,
         fontWeight: 'bold',
-        padding: 8,
-        paddingHorizontal: 12,
         textTransform: 'capitalize',
     },
     selectedItem: {
-        color: colors.white
+        color: colors.blue
     },
     itemContainer: {
+        padding: 8,
+        paddingHorizontal: 12,
+        borderWidth: 1,
+        borderColor: colors.blue,
+        borderRadius: 8,
         marginRight: 8,
         marginBottom: 14,
     },
     selectedItemContainer: {
-        backgroundColor: colors.green,
-        borderRadius: 10,
+        backgroundColor: colors.lightGrey,
+        borderColor: colors.lightGrey,
     }
 });
 
