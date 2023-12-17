@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
   thin: {
     fontWeight: '300',
     fontSize: 24,
-    color: colors.purple
+    color: colors.purple,
+    paddingHorizontal: 24,
   }
 });
 

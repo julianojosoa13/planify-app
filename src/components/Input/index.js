@@ -5,9 +5,13 @@ import React from 'react';
 import styles from './styles';
 import colors from '../../constants/colors';
 
-const Input = ({...props}) => {
+const Input = ({outlined, ...props}) => {
   return (
-    <TextInput style={styles.input} {...props} placeholderTextColor={colors.midGrey}/>
+    <TextInput 
+      style={[styles.input, outlined? styles.outlined : {}]} 
+      placeholderTextColor={colors.midGrey}
+      {...props} 
+    />
   );
 };
 
