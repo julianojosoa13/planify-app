@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
-    color: colors.black,
+    color: colors.grey,
     fontSize: 15,
-    marginLeft: 4,
+    marginLeft: 8,
   },
   icon: {
-    width: 24,
-    height: 24
+    width: 18,
+    height: 18
   }
 });
 
