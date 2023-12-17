@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   outlined: {
     backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: colors.black,
+    borderColor: colors.grey,
     marginHorizontal: 24,
   }
 });

@@ -14,6 +14,12 @@ const styles = StyleSheet.create({
     backIcon: {
         width: 32,
         height: 32
+    },
+    label: {
+        color: colors.black,
+        fontSize: 12,
+        marginHorizontal: 24,
+        fontWeight: '500',
     }
 });
 

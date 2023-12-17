@@ -17,6 +17,7 @@ function AddTask({navigation}) {
         <Image source={require("../../../assets/backIcon.png")} style={styles.backIcon}/>
       </Pressable>
       <Title type='thin'>Add New Task</Title>
+      <Text style={styles.label}>Describe the task</Text>
       <Input placeholder='Type here...' outlined={true}/>
     </SafeAreaView>
   );
