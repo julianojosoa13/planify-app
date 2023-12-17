@@ -8,9 +8,12 @@ import Input from '../../../components/Input';
 import Categories from '../../../components/Categories';
 
 import { categories } from '../../../constants/categories';
+import DateInput from '../../../components/DateInput';
 
 function AddTask({navigation}) {
   const [selectedItem, setSelectedItem] = useState()
+  const [date, setDate] = useState(new Date())
+
   const onPress = () => {
     navigation.goBack()
   }
@@ -28,6 +31,7 @@ function AddTask({navigation}) {
       <Categories categories={categories} selectedCategory={selectedItem} onCategoryPress={setSelectedItem}/>
     
       <Text style={styles.label}>Deadline</Text>
+      <DateInput value={date} onChange={setDate}/>
     </SafeAreaView>
   );
 }
