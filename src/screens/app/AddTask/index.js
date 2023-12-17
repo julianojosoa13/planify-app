@@ -4,6 +4,7 @@ import React from 'react';
 
 import styles from './styles';
 import Button from '../../../components/Button';
+import Title from '../../../components/Title';
 
 function AddTask({navigation}) {
   const onPress = () => {
@@ -14,6 +15,7 @@ function AddTask({navigation}) {
       <Pressable style={styles.backContainer} onPress={onPress} hitSlop={8}>
         <Image source={require("../../../assets/backIcon.png")} style={styles.backIcon}/>
       </Pressable>
+      <Title type='thin'>Add New Task</Title>
     </SafeAreaView>
   );
 }

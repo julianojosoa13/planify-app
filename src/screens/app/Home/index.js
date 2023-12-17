@@ -6,6 +6,7 @@ import styles from './styles';
 import Button from '../../../components/Button';
 import Header from '../../../components/Header';
 import PlusIcon from '../../../components/PlusIcon';
+import Title from '../../../components/Title';
 
 function Home() {
 
@@ -14,7 +15,7 @@ function Home() {
       <Header title='Home'/>
       
       <ScrollView>
-        <Text>Home</Text>
+        <Title type='thin'>Daily Tasks: </Title>
       </ScrollView>
       
       <PlusIcon />
