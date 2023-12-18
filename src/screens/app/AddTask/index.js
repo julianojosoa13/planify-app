@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { View, Text, Image, SafeAreaView, Pressable, Alert } from 'react-native';
 import React, { useState } from 'react';
+import firestore from '@react-native-firebase/firestore';
 
 import styles from './styles';
 import Title from '../../../components/Title';
@@ -30,6 +31,18 @@ function AddTask({navigation}) {
       Alert.alert("Add Task", 'The deadline must be a date in the future!')
       return
     }
+
+    firestore()
+      .collection('Tasks')
+      .doc('ABC')
+      .set({
+        title,
+        deadline,
+        category: selectedItem
+      })
+      .then(() => {
+        console.log('Task added!');
+      });
 
   }
 
