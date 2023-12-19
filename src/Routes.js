@@ -24,6 +24,8 @@ import Home from './screens/app/Home';
 import Tasks from './screens/app/Tasks';
 import AddTask from './screens/app/AddTask';
 import DrawerContent from './components/DrawerContent';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from './store/user';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -34,13 +36,14 @@ const Tab = createBottomTabNavigator();
 const Routes = () => {
   // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
-  const [user, setUser] = useState();
+  const user = useSelector(state => state.user.data)
+  const dispatch = useDispatch()
 
   console.log('user :>> ', user)
   
   // Handle user state changes
-  function onAuthStateChanged(user) {
-    setUser(user);
+  async function onAuthStateChanged(user) {
+    await dispatch(setUser(user))
     if (initializing) setInitializing(false);
   }
 

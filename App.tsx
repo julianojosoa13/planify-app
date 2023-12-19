@@ -9,6 +9,9 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
+import { Provider } from 'react-redux';
+
+import store from './src/store';
 
 import Routes from './src/Routes';
 
@@ -22,9 +25,11 @@ function App(): JSX.Element {
   }
 
   return (
-    <NavigationContainer theme={theme}>
-      <Routes />
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer theme={theme}>
+        <Routes />
+      </NavigationContainer>
+    </Provider>
   );
 }
 

@@ -7,9 +7,11 @@ import Button from '../../../components/Button';
 import Header from '../../../components/Header';
 import PlusIcon from '../../../components/PlusIcon';
 import Title from '../../../components/Title';
+import { useSelector } from 'react-redux';
 
 function Home() {
-
+  const user = useSelector(state => state.user.data)
+  console.log(user)
   return (
     <SafeAreaView style={styles.container}>
       <Header title='Home'/>

@@ -13,12 +13,15 @@ import { categories } from '../../../constants/categories';
 import DateInput from '../../../components/DateInput';
 import moment from 'moment';
 import { ScrollView } from 'react-native-gesture-handler';
+import { useSelector } from 'react-redux';
 
 function AddTask({navigation}) {
   const [selectedItem, setSelectedItem] = useState()
   const [date, setDate] = useState(new Date())
   const [title, setTitle] = useState('')
   const [loading, setLoading] = useState(false)
+
+  const user = useSelector(state => state.user.data)
 
   console.log(title)
 
@@ -39,7 +42,7 @@ function AddTask({navigation}) {
 
     firestore()
       .collection('Tasks')
-      .doc('ABC')
+      .doc(user.uuid)
       .set({
         title,
         deadline,
