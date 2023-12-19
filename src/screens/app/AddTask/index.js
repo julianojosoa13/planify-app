@@ -42,11 +42,12 @@ function AddTask({navigation}) {
 
     firestore()
       .collection('Tasks')
-      .doc(user.uuid)
-      .set({
+      .add({
         title,
         deadline,
-        category: selectedItem || null
+        category: selectedItem || null,
+        userId: user.uid,
+        checked: false,
       })
       .then(() => {
         setLoading(false)
