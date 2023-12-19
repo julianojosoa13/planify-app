@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { View, Text, Image, SafeAreaView, Pressable, Alert } from 'react-native';
+import { View, Text, Image, SafeAreaView, Pressable, Alert, ActivityIndicator } from 'react-native';
 import React, { useState } from 'react';
 import firestore from '@react-native-firebase/firestore';
 
@@ -12,11 +12,14 @@ import Button from '../../../components/Button';
 import { categories } from '../../../constants/categories';
 import DateInput from '../../../components/DateInput';
 import moment from 'moment';
+import { ScrollView } from 'react-native-gesture-handler';
 
 function AddTask({navigation}) {
   const [selectedItem, setSelectedItem] = useState()
   const [date, setDate] = useState(new Date())
   const [title, setTitle] = useState('')
+  const [loading, setLoading] = useState(false)
+
   console.log(title)
 
   const onSubmit = () => {
@@ -32,16 +35,27 @@ function AddTask({navigation}) {
       return
     }
 
+    setLoading(true)
+
     firestore()
       .collection('Tasks')
       .doc('ABC')
       .set({
         title,
         deadline,
-        category: selectedItem
+        category: selectedItem || null
       })
       .then(() => {
+        setLoading(false)
         console.log('Task added!');
+        setDate(new Date)
+        setTitle('')
+        setSelectedItem('')
+        navigation.navigate('Tasks')
+      }).catch(e => {
+        console.log("error :>> ", e)
+        setLoading(false)
+        Alert.alert(error.message)
       });
 
   }
@@ -54,18 +68,23 @@ function AddTask({navigation}) {
       <Pressable style={styles.backContainer} onPress={onPress} hitSlop={8}>
         <Image source={require("../../../assets/backIcon.png")} style={styles.backIcon}/>
       </Pressable>
-      <Title type='thin'>Add New Task</Title>
+      <ScrollView>
+        <Title type='thin'>Add New Task</Title>
 
-      <Text style={styles.label}>Describe the task</Text>
-      <Input placeholder='Type here...' outlined={true} value={title} onChangeText={setTitle}/>
+        <Text style={styles.label}>Describe the task</Text>
+        <Input placeholder='Type here...' outlined={true} value={title} onChangeText={setTitle}/>
 
-      <Text style={styles.label}>Type</Text>
-      <Categories categories={categories} selectedCategory={selectedItem} onCategoryPress={setSelectedItem}/>
-    
-      <Text style={styles.label}>Deadline</Text>
-      <DateInput value={date} onChange={setDate}/>
+        <Text style={styles.label}>Type</Text>
+        <Categories categories={categories} selectedCategory={selectedItem} onCategoryPress={setSelectedItem}/>
+      
+        <Text style={styles.label}>Deadline</Text>
+        <DateInput value={date} onChange={setDate}/>
 
-      <Button type='blue' style={styles.button} onPress={onSubmit}>Add The Task</Button>
+        {loading? 
+            <ActivityIndicator size={'large'}/> : 
+            <Button type='blue' style={styles.button} onPress={onSubmit}>Add The Task</Button>
+        }
+      </ScrollView>
     </SafeAreaView>
   );
 }
