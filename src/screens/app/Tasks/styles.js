@@ -8,6 +8,9 @@ const styles = StyleSheet.create({
     container:{
         flex: 1,
     },
+    header: {
+        marginBottom: 24,
+    },
     row: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -17,6 +20,9 @@ const styles = StyleSheet.create({
     taskText: {
         color: colors.black,
         marginLeft: 8
+    },
+    checked: {
+        textDecorationLine: 'line-through'
     }
 });
 

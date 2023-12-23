@@ -8,10 +8,13 @@ export const taskSlice = createSlice({
     reducers: {
         setTasks: (state, action) => {
             state.data = action.payload
+        },
+        setToUpdate: (state, action) => {
+            
         }
     }
 })
 
-export const {setTasks} = taskSlice.actions;
+export const {setTasks, setToUpdate} = taskSlice.actions;
 
 export default taskSlice.reducer
