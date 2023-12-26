@@ -14,8 +14,11 @@ import DateInput from '../../../components/DateInput';
 import moment from 'moment';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
+import { setToUpdate } from '../../../store/tasks';
+import { useDispatch } from 'react-redux';
 
 function AddTask({navigation}) {
+  const dispatch = useDispatch()
   const [selectedItem, setSelectedItem] = useState()
   const [date, setDate] = useState(new Date())
   const [title, setTitle] = useState('')
@@ -55,6 +58,7 @@ function AddTask({navigation}) {
         setDate(new Date)
         setTitle('')
         setSelectedItem('')
+        dispatch(setToUpdate())
         navigation.navigate('Tasks')
       }).catch(e => {
         console.log("error :>> ", e)

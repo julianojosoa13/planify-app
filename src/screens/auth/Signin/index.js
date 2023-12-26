@@ -7,9 +7,12 @@ import Button from '../../../components/Button';
 import Title from '../../../components/Title';
 import Input from '../../../components/Input';
 import { ScrollView } from 'react-native-gesture-handler';
+import { setUser } from '../../../store/user';
+import { useDispatch } from 'react-redux';
 
 function Signin({navigation}) {
   const [values, setValues] = useState({});
+  const dispatch = useDispatch()
 
   const onChange = (value, key) => {
     console.log('some text changed ', key)
@@ -27,6 +30,7 @@ function Signin({navigation}) {
     auth().signInWithEmailAndPassword(values.email, values.password)
           .then(() => {
             console.log('User signed in')
+            dispatch(setUser(auth().currentUser))
           })
           .catch(error => {
 

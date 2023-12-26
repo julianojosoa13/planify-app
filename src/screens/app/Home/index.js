@@ -14,9 +14,11 @@ function Home() {
   const disptach = useDispatch()
   const user = useSelector(state => state.user.data)
   const tasks = useSelector(state => state.tasks.data)
+  const toUpdate = useSelector(state => state.tasks.toUpdate)
 
   console.log("Tasks :>> ", tasks)
   console.log("User :>> ", user)
+  console.log("toUpdate :>> ", toUpdate)
 
   useEffect(() => {
     firestore()
@@ -32,7 +34,8 @@ function Home() {
         disptach(setTasks(tasksList))
       })
 
-  }, [])
+  }, [user, toUpdate, disptach])
+
   return (
     <SafeAreaView style={styles.container}>
       <Header title='Home'/>
