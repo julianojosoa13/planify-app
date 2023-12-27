@@ -24,7 +24,7 @@ function Tasks() {
 
   useEffect(()=> {
     if(selectedItem && selectedItem !== 'all') {
-      const filtered = tasks.filter(task => task.category === selectedItem)
+      const filtered = tasks?.filter(task => task.category === selectedItem)
       setFilteredTasks(filtered)
     } else {
       setFilteredTasks(tasks)

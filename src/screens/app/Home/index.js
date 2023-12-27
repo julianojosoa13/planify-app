@@ -9,6 +9,7 @@ import PlusIcon from '../../../components/PlusIcon';
 import Title from '../../../components/Title';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTasks } from '../../../store/tasks';
+import StatusCard from '../../../components/StatusCard';
 
 function Home() {
   const disptach = useDispatch()
@@ -42,6 +43,12 @@ function Home() {
       
       <ScrollView>
         <Title type='thin'>Daily Tasks: </Title>
+
+        <View style={styles.row}>
+          <StatusCard label={'High Priority'} count={3}/>
+          <StatusCard label={'Due Deadline'} count={3} type={'error'}/>
+          <StatusCard label={'Quick Win'} count={3}/>
+        </View>
       </ScrollView>
       
       <PlusIcon />
